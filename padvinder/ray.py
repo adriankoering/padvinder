@@ -1,5 +1,6 @@
 import numpy as np
-from  utils import normalize
+
+from padvinder.util import normalize
 
 class Ray:
     def __init__(self,
@@ -45,16 +46,16 @@ class Ray:
         """
         if check_input:
             self._check_parameters(position, direction)
-        self._p = np.array(position)
-        self._d = normalize(direction)
+        self._p = np.array(position).astype(np.float64)
+        self._d = normalize(direction).astype(np.float64)
 
     def _check_parameters(self, p, d):
         """
         Validate the input parameters and raise ValueErrors if
         """
-        if np.isnan(p) or np.isnan(d):
+        if np.isnan(p).any() or np.isnan(d).any():
             raise ValueError("Input to Ray({}, {}) can not be NaN".format(p, d))
-        if np.isinf(p) or np.isinf(d):
+        if np.isinf(p).any() or np.isinf(d).any():
             raise ValueError("Input to Ray({}, {}) can not be Inf".format(p, d))
 
     @property
