@@ -1,4 +1,4 @@
-.. image:: https://img.shild.io/badge/License-MIT-green.svg
+![License:MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 # padvinder
 Learning how to raytrace with an object-orientated implementation in python.
