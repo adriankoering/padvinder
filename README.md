@@ -3,6 +3,17 @@
 # padvinder
 Learning how to raytrace with an object-orientated implementation in python.
 
+## Usage
+from the root of the repository run it via
+```
+python -m padvinder
+```
+this executes the \__main__.py file
+
+to run the test execute the test module from the repository root via
+```
+python -m padvinder.test
+```
 
 # Todo List
 1. Add Test for all sources
