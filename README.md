@@ -1,4 +1,6 @@
-![License:MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![License:MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)
+[![Build Status](https://travis-ci.org/adriankoering/padvinder.svg?branch=master)](https://travis-ci.org/adriankoering/padvinder)
+
 
 # padvinder
 Learning how to raytrace with an object-orientated implementation in python. :dizzy:
