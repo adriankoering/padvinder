@@ -21,6 +21,4 @@ python -m padvinder.test
 1. Add Test for all sources
 2. Copy sources from previous projects
 3. Add Examples and Images to readme
-4. Add Continuous Integration
-5. Add those cute buttons to the readme
 6. Speed-up with numba, cython, etc.
