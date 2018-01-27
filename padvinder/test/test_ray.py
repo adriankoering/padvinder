@@ -1,4 +1,5 @@
 import unittest
+import numpy as np
 import numpy.testing as nt
 
 from padvinder.ray import Ray
