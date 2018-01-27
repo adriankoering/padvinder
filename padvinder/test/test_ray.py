@@ -25,18 +25,18 @@ class TestRay(unittest.TestCase):
         the remaining tests.
         """
         with self.assertRaises(ValueError):
-            Ray(np.array((np.nan, 0, 0)))
+            Ray(position=np.array((np.nan, 0, 0)))
         with self.assertRaises(ValueError):
-            Ray(np.array((np.inf, 0, 0)))
+            Ray(position=np.array((np.inf, 0, 0)))
         with self.assertRaises(ValueError):
-            Ray(np.array((np.inf, 0, 0)))
+            Ray(position=np.array((np.inf, 0, 0)))
         with self.assertRaises(ValueError):
-            Ray(np.array(d=(np.nan, 0, 0)))
+            Ray(direction=np.array((np.nan, 0, 0)))
         with self.assertRaises(ValueError):
-            Ray(np.array(d=(np.inf, 0, 0)))
+            Ray(direction=np.array((np.inf, 0, 0)))
         with self.assertRaises(ValueError):
-            Ray(np.array(d=(-np.inf, 0, 0)))
-        Ray(np.array((np.nan, 0, 0)), check_input=False)
-        Ray(np.array((np.inf, 0, 0)), check_input=False)
-        Ray(np.array(d=(np.nan, 0, 0)), check_input=False)
-        Ray(np.array(d=(np.inf, 0, 0)), check_input=False)
+            Ray(direction=np.array((-np.inf, 0, 0)))
+        Ray(position=np.array((np.nan, 0, 0)), check_input=False)
+        Ray(position=np.array((np.inf, 0, 0)), check_input=False)
+        Ray(direction=np.array((np.nan, 0, 0)), check_input=False)
+        Ray(direction=np.array((np.inf, 0, 0)), check_input=False)
