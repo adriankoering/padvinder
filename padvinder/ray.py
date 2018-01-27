@@ -45,11 +45,11 @@ class Ray:
         ray([3.0, 2.3, -5.1], [-0.28171808,  0.95784149, -0.05634362])
         """
         if check_input:
-            self._check_parameters(position, direction)
+            self._check_input(position, direction)
         self._p = np.array(position).astype(np.float64)
         self._d = normalize(direction).astype(np.float64)
 
-    def _check_parameters(self, p, d):
+    def _check_input(self, p, d):
         """
         Validate the input parameters and raise ValueErrors if
         """
