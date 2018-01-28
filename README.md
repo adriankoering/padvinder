@@ -16,9 +16,3 @@ to run the test execute the test module from the repository root via
 ```
 python -m padvinder.test
 ```
-
-# Todo List
-1. Add Test for all sources
-2. Copy sources from previous projects
-3. Add Examples and Images to readme
-6. Speed-up with numba, cython, etc.
