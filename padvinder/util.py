@@ -35,7 +35,10 @@ def normalize(arr):
     [ 0.42426407  0.56568542  0.70710678]
     ### np.linalg.norm(normalize((x, y, z))) ~= 1
     """
+    if not np.isfinite(arr).all():
+        raise ValueError("Can not normalize array {}".format(arr)
+                        + "because it contains NaN or Inf")
     norm = LA.norm(arr)
-    if norm < 1e-8:
-        raise ZeroDivisionError("division by zero")
-    return arr / LA.norm(arr)
+    if norm < 1e-9:
+        raise ZeroDivisionError("Division by zero")
+    return arr / norm
