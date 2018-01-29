@@ -35,4 +35,7 @@ def normalize(arr):
     [ 0.42426407  0.56568542  0.70710678]
     ### np.linalg.norm(normalize((x, y, z))) ~= 1
     """
+    norm = LA.norm(arr)
+    if norm < 1e-8:
+        raise ZeroDivisionError("division by zero")
     return arr / LA.norm(arr)
