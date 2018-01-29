@@ -5,8 +5,7 @@ from padvinder.util import normalize
 class Ray:
     def __init__(self,
                  position = (0,0,0),
-                 direction = (1,0,0),
-                 check_input = True
+                 direction = (1,0,0)
                  ):
         """
         A ray consists of a starting position and a direction.
@@ -23,9 +22,6 @@ class Ray:
             Direction must have the same dimension as origin or vice versa.
             Direction will be stored normalized.
             Direction can not have length zero.
-        check_input: Boolean
-            For performance reasons, the input-checking can be disabled if
-            illegal inputs are impossible to be encountered.
 
         Returns
         -------
@@ -44,19 +40,19 @@ class Ray:
         >>> ray((3.0, 2.3, -5.1), (-10, 34, -2))
         ray([3.0, 2.3, -5.1], [-0.28171808,  0.95784149, -0.05634362])
         """
-        if check_input:
-            self._check_input(position, direction)
+        self._check_input(position, direction)
         self._p = np.array(position).astype(np.float64)
         self._d = normalize(direction).astype(np.float64)
 
-    def _check_input(self, p, d):
+    def _check_input(self, position, direction):
         """
-        Validate the input parameters and raise ValueErrors if
+        Validate the input parameters and raise ValueErrors if incompatible
+        values are present.
         """
-        if np.isnan(p).any() or np.isnan(d).any():
-            raise ValueError("Input to Ray({}, {}) can not be NaN".format(p, d))
-        if np.isinf(p).any() or np.isinf(d).any():
-            raise ValueError("Input to Ray({}, {}) can not be Inf".format(p, d))
+        if    (not np.isfinite(position).all()
+            or not np.isfinite(direction).all()):
+            raise ValueError("Input to Ray({}, {})".format(position, direction)
+                            + " can not contain Inf or NaN")
 
     @property
     def p(self):
@@ -90,8 +86,8 @@ class Ray:
         --------
         ray((0, 0, 0), (1, 0, 0)).point(10) = [10 0 0]
         """
-        return self._p + t*self._d
+        return self._p + distance*self._d
 
     def __str__(self):
         # converting the numpy array to string
-        return "Ray({0}, {1})".format(self.p, self.d)
+        return "Ray({0}, {1})".format(self._p, self._d)
