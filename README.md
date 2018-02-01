@@ -3,21 +3,32 @@
 [![Documentation Status](https://readthedocs.org/projects/padvinder/badge/?version=latest)](http://padvinder.readthedocs.io/en/latest/?badge=latest)
 
 
+# Padvinder
 
-# padvinder
-Learning how to raytrace with an object-orientated implementation in python. :dizzy:
+Padvinder is a little pathtracing renderer written in Python. Originally I was keen to implement my own pathtracer. The focus has always been on quick coding and learning rather than on code performance. Over the time it developed into an exercise for good coding practices like test-driven-development, continuous integration and documentation.
 
-## Usage
-from the root of the repository run it via
+Padvinder is meant to be a dutchly flavoured word for pathtracing; encoding the algorithm used for rendering with Guido van Rossum's dutch origins.
+
+## Example Usage
+
+Run an example renering from the root of the repository via
 ```
 python -m padvinder
 ```
-this executes the \_\_main\_\_.py file
+I find this to be cleaner and shorter than having a main.py file. It makes use of Python's ability to execute modules. Under the hood \_\_main\_\_.py is executed.
 
-to run the test execute the test module from the repository root via
+## Tests
+
+Run the tests similarly to running the example via
 ```
 python -m padvinder.test
 ```
-## Documentation
+Again, this executes the \_\_main\_\_.py file in the test module while keeping the command line concise.
 
-Find a rendered version of the documentation at [padvinder.readthedocs.io](http://padvinder.readthedocs.io/en/latest/)
+## Continuous Integration
+
+Thanks to [Travis CI](https://travis-ci.org/) :smiley: Find the build status at [Padvinder on Travis](https://travis-ci.org/adriankoering/padvinder).
+
+
+## Documentation
+Thanks to [Read the Docs](https://readthedocs.org/) :smiley: Find the documentation at [Padvinder on Read the Docs](http://padvinder.readthedocs.io/en/latest/).
