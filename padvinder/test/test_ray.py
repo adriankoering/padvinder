@@ -55,7 +55,7 @@ class TestRay(unittest.TestCase):
         """
         r = Ray((0, 0, 0), (1, 0, 0))
         s = str(r)
-        self.assertEqual(s, "Ray([ 0.  0.  0.], [ 1.  0.  0.])")
+        self.assertEqual(s, "Ray([0. 0. 0.], [1. 0. 0.])")
 
     @hy.given(hynp.arrays(np.float64, (2, 3),
               hy.strategies.floats(min_value=-1e9, # beyond that test errors
