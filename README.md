@@ -1,5 +1,7 @@
 ![License:MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 [![Build Status](https://travis-ci.org/adriankoering/padvinder.svg?branch=master)](https://travis-ci.org/adriankoering/padvinder)
+[![Documentation Status](https://readthedocs.org/projects/padvinder/badge/?version=latest)](http://padvinder.readthedocs.io/en/latest/?badge=latest)
+
 
 
 # padvinder
