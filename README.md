@@ -18,3 +18,6 @@ to run the test execute the test module from the repository root via
 ```
 python -m padvinder.test
 ```
+## Documentation
+
+Find a rendered version of the documentation at [padvinder.readthedocs.io](http://padvinder.readthedocs.io/en/latest/)
