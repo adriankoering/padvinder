@@ -1,6 +1,7 @@
 import numpy as np
 
 from padvinder.util import normalize
+from padvinder.util import check_finite
 
 class Ray:
     def __init__(self,
@@ -40,19 +41,10 @@ class Ray:
         >>> ray((3.0, 2.3, -5.1), (-10, 34, -2))
         ray([3.0, 2.3, -5.1], [-0.28171808,  0.95784149, -0.05634362])
         """
-        self._check_input(position, direction)
+        check_finite(position, direction)
         self._p = np.array(position).astype(np.float64)
         self._d = normalize(direction).astype(np.float64)
 
-    def _check_input(self, position, direction):
-        """
-        Validate the input parameters and raise ValueErrors if incompatible
-        values are present.
-        """
-        if    (not np.isfinite(position).all()
-            or not np.isfinite(direction).all()):
-            raise ValueError("Input to Ray({}, {})".format(position, direction)
-                            + " can not contain Inf or NaN")
 
     @property
     def p(self):
