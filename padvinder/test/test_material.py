@@ -16,7 +16,7 @@ class TestMaterial(unittest.TestCase):
         """
         m = Material()
         nt.assert_almost_equal(m.color, (0.5, 0.5, 0.5))
-        nt.assert_almost_equal(m.color, m(None, None, None, None))
+        nt.assert_almost_equal(m.color, m(None, None, None, None, None))
 
     def test_non_default_construction(self):
         """
@@ -25,7 +25,7 @@ class TestMaterial(unittest.TestCase):
         """
         m = Material((1,1,1))
         nt.assert_almost_equal(m.color, (1,1,1))
-        nt.assert_almost_equal(m.color, m(None, None, None, None))
+        nt.assert_almost_equal(m.color, m(None, None, None, None, None))
 
     def test_representation(self):
         """
@@ -43,7 +43,7 @@ class TestEmission(unittest.TestCase):
         """
         m = Emission()
         nt.assert_almost_equal(m.color, (0.5, 0.5, 0.5))
-        nt.assert_almost_equal(m.color, m(None, None, None, None))
+        nt.assert_almost_equal(m.color, m(None, None, None, None, None))
 
     def test_non_default_construction(self):
         """
@@ -52,7 +52,7 @@ class TestEmission(unittest.TestCase):
         """
         m = Emission((1,1,1))
         nt.assert_almost_equal(m.color, (1,1,1))
-        nt.assert_almost_equal(m.color, m(None, None, None, None))
+        nt.assert_almost_equal(m.color, m(None, None, None, None, None))
 
     def test_representation(self):
         """

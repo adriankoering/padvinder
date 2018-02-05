@@ -32,7 +32,8 @@ class Material(object):
     def color(self):
         return self._color
 
-    def __call__(self, surface_normal,
+    def __call__(self, surface_position,
+                       surface_normal,
                        incoming_light,
                        incoming_direction,
                        outgoing_direction):
@@ -80,7 +81,8 @@ class Lambert(Material):
         c, d = self._color, self._diffuse
         return "Lambert(color={0}, diffuse={1})".format(c, d)
 
-    def __call__(self, surface_normal,
+    def __call__(self, surface_position,
+                       surface_normal,
                        incoming_light,
                        incoming_direction,
                        outgoing_direction):
