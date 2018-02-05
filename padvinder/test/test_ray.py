@@ -58,7 +58,7 @@ class TestRay(unittest.TestCase):
         self.assertEqual(s, "Ray([0. 0. 0.], [1. 0. 0.])")
 
     @hy.given(hynp.arrays(np.float64, (2, 3),
-              hy.strategies.floats(min_value=-1e9, # beyond that test errors
+              hy.strategies.floats(min_value=-1e9, # beyond that all test errors
                                    max_value=1e9,  # are rounding errors
                                    allow_nan=False,
                                    allow_infinity=False)))
