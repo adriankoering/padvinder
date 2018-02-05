@@ -42,3 +42,14 @@ def normalize(arr):
     if norm < 1e-9:
         raise ZeroDivisionError("Division by zero")
     return arr / norm
+
+
+def check_finite(*args):
+    """
+    Validate the input parameters and raise ValueErrors if incompatible
+    values are present.
+    """
+    for e in args:
+        if not np.isfinite(e).all():
+            raise ValueError("Input was {}".format(e)
+                            + ", but can not contain Inf or NaN")
