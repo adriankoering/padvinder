@@ -64,3 +64,5 @@ class TestCheckFinite(unittest.TestCase):
             check_finite((-np.inf, np.inf, np.nan), *np.ones((100, 4)))
         with self.assertRaises(ValueError):
             check_finite(np.inf, np.nan, 0)
+        with self.assertRaises(ValueError):
+            check_finite(np.inf, np.nan, (-np.inf, 0), 0)
