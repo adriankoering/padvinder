@@ -42,23 +42,23 @@ class Ray:
         ray([3.0, 2.3, -5.1], [-0.28171808,  0.95784149, -0.05634362])
         """
         check_finite(position, direction)
-        self._p = np.array(position).astype(np.float64)
-        self._d = normalize(direction).astype(np.float64)
+        self._position = np.array(position).astype(np.float64)
+        self._direction = normalize(direction).astype(np.float64)
 
 
     @property
-    def p(self):
+    def position(self):
         """
         Return the vector's position.
         """
-        return self._p
+        return self._position
 
     @property
-    def d(self):
+    def direction(self):
         """
         Return the vector's normalized direction.
         """
-        return self._d
+        return self._direction
 
     def point(self, distance):
         """
@@ -78,8 +78,9 @@ class Ray:
         --------
         ray((0, 0, 0), (1, 0, 0)).point(10) = [10 0 0]
         """
-        return self._p + distance*self._d
+        return self.position + distance*self.direction
 
     def __str__(self):
         # converting the numpy array to string
-        return "Ray({0}, {1})".format(self._p, self._d)
+        p, d = self.position, self.direction
+        return "Ray({0}, {1})".format(p, d)

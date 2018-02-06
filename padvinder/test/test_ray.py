@@ -13,10 +13,10 @@ class TestRay(unittest.TestCase):
         expected default parameters.
         """
         r = Ray()
-        nt.assert_almost_equal(r.p, (0, 0, 0))
-        nt.assert_almost_equal(r.d, (1, 0, 0))
-        nt.assert_almost_equal(r.p, r._p)
-        nt.assert_almost_equal(r.d, r._d)
+        nt.assert_almost_equal(r.position, (0, 0, 0))
+        nt.assert_almost_equal(r.direction, (1, 0, 0))
+        nt.assert_almost_equal(r.position, r._position)
+        nt.assert_almost_equal(r.direction, r._direction)
 
     def test_input(self):
         """
@@ -45,8 +45,8 @@ class TestRay(unittest.TestCase):
         ray is calculated correctly.
         """
         r = Ray((0, 0, 0), (1, 0, 0))
-        nt.assert_almost_equal(r.point(0), r.p)
-        nt.assert_almost_equal(r.point(1), r.p + r.d)
+        nt.assert_almost_equal(r.point(0), r.position)
+        nt.assert_almost_equal(r.point(1), r.position + r.direction)
         nt.assert_almost_equal(r.point(2), (2, 0, 0))
 
     def test_string(self):
@@ -70,8 +70,8 @@ class TestRay(unittest.TestCase):
         norm_d = np.linalg.norm(d)
         hy.assume(norm_d > 1e-8)
         r = Ray(p, d)
-        nt.assert_almost_equal(r.p, p)
-        nt.assert_almost_equal(r.d*norm_d, d)
-        nt.assert_almost_equal(np.linalg.norm(r.d), 1)
+        nt.assert_almost_equal(r.position, p)
+        nt.assert_almost_equal(r.direction*norm_d, d)
+        nt.assert_almost_equal(np.linalg.norm(r.direction), 1)
         point = r.point(4)
-        nt.assert_almost_equal(np.linalg.norm(r.p - point), 4)
+        nt.assert_almost_equal(np.linalg.norm(r.position - point), 4)
