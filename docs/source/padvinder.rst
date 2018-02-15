@@ -5,7 +5,7 @@ Ray
 ---------------------
 
 .. automodule:: padvinder.ray
-    :members:
+    :members: Ray
     :undoc-members:
     :show-inheritance:
 
@@ -14,7 +14,7 @@ Geometry
 ---------------------
 
 .. automodule:: padvinder.geometry
-    :members:
+    :members: Geometry Sphere Plane
     :undoc-members:
     :show-inheritance:
 
@@ -23,7 +23,7 @@ Material
 ----------------------
 
 .. automodule:: padvinder.material
-    :members:
+    :members: Material Emission Lambert
     :undoc-members:
     :show-inheritance:
 
@@ -32,7 +32,7 @@ Scene
 ----------------------
 
 .. automodule:: padvinder.scene
-    :members:
+    :members: Scene
     :undoc-members:
     :show-inheritance:
 
