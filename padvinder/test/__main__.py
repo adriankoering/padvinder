@@ -12,5 +12,6 @@ from padvinder.test.test_material import TestLambert
 from padvinder.test.test_geometry import TestGeometry
 from padvinder.test.test_geometry import TestSphere
 from padvinder.test.test_geometry import TestPlane
+from padvinder.test.test_scene    import TestScene
 
 unittest.main()
