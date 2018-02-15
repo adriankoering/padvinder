@@ -35,7 +35,7 @@ class TestGeometry(unittest.TestCase):
         # within this hierarchy, I will settle with confirming that
         # the function call succedes.
         try:
-            str(Geometry())
+            s = str(Geometry())
         except:
             self.fail("TestGeometry.test_representation failed")
 
@@ -86,7 +86,7 @@ class TestSphere(unittest.TestCase):
         # within this hierarchy, I will settle with confirming that
         # the function call succedes.
         try:
-            str(Sphere())
+            s = str(Sphere())
         except:
             self.fail("TestSphere.test_representation failed")
 
@@ -128,6 +128,6 @@ class TestPlane(Geometry):
         # within this hierarchy, I will settle with confirming that
         # the function call succedes.
         try:
-            str(Plane())
+            s = str(Plane())
         except:
             self.fail("TestSphere.test_representation failed")

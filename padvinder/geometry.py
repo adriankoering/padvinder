@@ -171,14 +171,6 @@ class Plane(Geometry):
         """
         return self._position
 
-
-    @property
-    def normal(self):
-        """
-        Returns the normal of the plane
-        """
-        return self._normal
-
     def intersect(self, ray):
         """
         Given a ray
@@ -220,5 +212,5 @@ class Plane(Geometry):
         return self._normal
 
     def __repr__(self):
-        m, p, n = self.material, self.position, self.normal
-        return "Plane({}, position={}, normal={})".format(m, p, n)
+        m, p, n = self._material, self._position, self._normal
+        return "Plane({0}, position={1}, normal={2})".format(m, p, n)
