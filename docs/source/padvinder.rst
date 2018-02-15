@@ -12,6 +12,34 @@ padvinder\.ray module
     :undoc-members:
     :show-inheritance:
 
+
+padvinder\.geometry module
+---------------------
+
+.. automodule:: padvinder.geometry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+padvinder\.material module
+----------------------
+
+.. automodule:: padvinder.material
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+padvinder\.scene module
+----------------------
+
+.. automodule:: padvinder.scene
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
 padvinder\.util module
 ----------------------
 
