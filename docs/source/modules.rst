@@ -5,3 +5,4 @@ padvinder
    :maxdepth: 4
 
    padvinder
+   padvinder.test

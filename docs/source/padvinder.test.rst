@@ -1,7 +1,7 @@
-padvinder\.test package
+Padvinder TestCases
 =======================
 
-Ray TestCase
+Ray
 ---------------------------------
 
 .. automodule:: padvinder.test.test_ray
@@ -9,7 +9,7 @@ Ray TestCase
     :undoc-members:
     :show-inheritance:
 
-Geometry TestCase
+Geometry
 ---------------------
 
 .. automodule:: padvinder.test.test_geometry
@@ -18,7 +18,7 @@ Geometry TestCase
     :show-inheritance:
 
 
-Material TestCase
+Material
 ----------------------
 
 .. automodule:: padvinder.test.test_material
@@ -27,7 +27,7 @@ Material TestCase
     :show-inheritance:
 
 
-Scene TestCase
+Scene
 ----------------------
 
 .. automodule:: padvinder.test.test_scene
@@ -36,7 +36,7 @@ Scene TestCase
     :show-inheritance:
 
 
-Utilities TestCase
+Utilities
 ----------------------------------
 
 .. automodule:: padvinder.test.test_util
