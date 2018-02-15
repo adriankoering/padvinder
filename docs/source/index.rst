@@ -11,7 +11,7 @@ Padvinder
    :caption: Contents:
 
    padvinder
-   
+   padvinder.test
 
 
 Indices and tables

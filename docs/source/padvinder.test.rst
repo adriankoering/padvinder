@@ -1,10 +1,7 @@
 padvinder\.test package
 =======================
 
-Submodules
-----------
-
-padvinder\.test\.test\_ray module
+Ray TestCase
 ---------------------------------
 
 .. automodule:: padvinder.test.test_ray
@@ -12,7 +9,34 @@ padvinder\.test\.test\_ray module
     :undoc-members:
     :show-inheritance:
 
-padvinder\.test\.test\_util module
+Geometry TestCase
+---------------------
+
+.. automodule:: padvinder.test.test_geometry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Material TestCase
+----------------------
+
+.. automodule:: padvinder.test.test_material
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Scene TestCase
+----------------------
+
+.. automodule:: padvinder.test.test_scene
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Utilities TestCase
 ----------------------------------
 
 .. automodule:: padvinder.test.test_util

@@ -1,10 +1,7 @@
-padvinder package
+Padvinder
 =================
 
-Submodules
-----------
-
-padvinder\.ray module
+Ray
 ---------------------
 
 .. automodule:: padvinder.ray
@@ -13,7 +10,7 @@ padvinder\.ray module
     :show-inheritance:
 
 
-padvinder\.geometry module
+Geometry
 ---------------------
 
 .. automodule:: padvinder.geometry
@@ -22,7 +19,7 @@ padvinder\.geometry module
     :show-inheritance:
 
 
-padvinder\.material module
+Material
 ----------------------
 
 .. automodule:: padvinder.material
@@ -31,7 +28,7 @@ padvinder\.material module
     :show-inheritance:
 
 
-padvinder\.scene module
+Scene
 ----------------------
 
 .. automodule:: padvinder.scene
@@ -40,7 +37,7 @@ padvinder\.scene module
     :show-inheritance:
 
 
-padvinder\.util module
+Utilities
 ----------------------
 
 .. automodule:: padvinder.util
