@@ -1,3 +1,8 @@
+"""
+.. module:: Scene
+   :synopsis: A scene performs intersection tests on every renderable object.
+"""
+
 import numpy as np
 
 class Scene(object):

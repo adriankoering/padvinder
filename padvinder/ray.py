@@ -1,3 +1,10 @@
+"""
+.. module:: Ray
+   :synopsis: Rays are used to simulate the light passing through the scene and
+
+   figure out where it hits objects and how it gets reflected.
+"""
+
 import numpy as np
 
 from padvinder.util import normalize
