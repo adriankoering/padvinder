@@ -108,7 +108,11 @@ class TestPlane(Geometry):
         nt.assert_almost_equal(p.material.color, (1, 1, 1))
 
     def test_intersect(self):
-        pass
+        r = Ray()
+        nt.assert_almost_equal(Plane().intersect(r), np.inf)
+
+        p = Plane(position=(0.5, 0, 0), normal=(1, 0, 0))
+        nt.assert_almost_equal(p.intersect(r), 0.5)
 
     def test_normal(self):
         p = Plane()

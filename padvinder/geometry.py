@@ -197,9 +197,9 @@ class Plane(Geometry):
         >>> a.intersect(r)
         1.0
         """
-        d  = r.direction @ self._normal
+        d  = ray.direction @ self._normal
         if np.abs(d) > 1e-8:
-            d = ((self.position - r.position) @ self.normal) / d
+            d = ((self.position - ray.position) @ self._normal) / d
             return d if d > 0 else np.inf
         return np.inf
 
