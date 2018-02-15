@@ -5,36 +5,64 @@ Ray
 ---------------------
 
 .. automodule:: padvinder.ray
-    :members: Ray
+    :members:
     :undoc-members:
     :show-inheritance:
+
+.. autoclass:: Ray
+    :members:
+
 
 
 Geometry
 ---------------------
 
 .. automodule:: padvinder.geometry
-    :members: Geometry Sphere Plane
+    :members:
     :undoc-members:
     :show-inheritance:
 
+.. autoclass:: Geometry
+    :members:
+
+.. autoclass:: Sphere
+    :members:
+    :inherited-members:
+
+.. autoclass:: Plane
+    :members:
+    :inherited-members:
 
 Material
 ----------------------
 
 .. automodule:: padvinder.material
-    :members: Material Emission Lambert
+    :members:
     :undoc-members:
     :show-inheritance:
 
+.. autoclass:: Material
+    :members:
+
+.. autoclass:: Emission
+    :members:
+    :inherited-members:
+
+.. autoclass:: Lambert
+    :members:
+    :inherited-members:
 
 Scene
 ----------------------
 
 .. automodule:: padvinder.scene
-    :members: Scene
+    :members:
     :undoc-members:
     :show-inheritance:
+
+.. autoclass:: Scene
+    :members:
+
 
 
 Utilities
@@ -44,6 +72,8 @@ Utilities
     :members:
     :undoc-members:
     :show-inheritance:
+
+.. autofunction:: normalize
 
 
 Module contents
