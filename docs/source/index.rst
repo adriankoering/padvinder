@@ -10,6 +10,9 @@ Welcome to Padvinder's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   padvinder
+   padvinder.test
+
 
 
 Indices and tables
