@@ -36,4 +36,4 @@ class TestScene(unittest.TestCase):
         r2 = Ray(direction=(0, 1, 0)) # does not intersect scene
         (d, o) = self.scn.intersect(r2)
         nt.assert_almost_equal(d, np.inf)
-        self.assertTrue(o is None)
+        self.assertIsNone(o)
