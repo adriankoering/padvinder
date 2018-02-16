@@ -11,13 +11,3 @@ Padvinder
    geometry
    scene
    util
-
-
-
-Module contents
----------------
-
-.. automodule:: padvinder
-    :members:
-    :undoc-members:
-    :show-inheritance:

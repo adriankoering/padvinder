@@ -18,7 +18,7 @@
 
 import os
 import sys
-# from source to docs to padvinder 
+# from source to docs to padvinder
 sys.path.insert(0, os.path.abspath('../../'))
 
 
@@ -182,3 +182,6 @@ napoleon_use_ivar = False
 napoleon_use_param = True
 napoleon_use_rtype = True
 napoleon_use_keyword = True
+
+# overriden default flags
+autodoc_member_order = "bysource"

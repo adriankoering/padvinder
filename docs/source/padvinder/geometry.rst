@@ -2,13 +2,13 @@ Geometry
 =================
 
 .. automodule:: padvinder.geometry
-    :members:
-    :undoc-members:
     :show-inheritance:
 
 .. autoclass:: Geometry
-  :members:
+    :members:
+
 .. autoclass:: Sphere
-  :members:
+    :members:
+
 .. autoclass:: Plane
-  :members:
+    :members:
