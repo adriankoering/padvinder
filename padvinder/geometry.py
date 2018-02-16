@@ -1,7 +1,7 @@
-"""
-.. module:: Geometry
-   :synopsis: Geometry is everything visible in the rendered image.
-"""
+# """
+# .. module:: Geometry
+#    :synopsis: Geometry is everything visible in the rendered image.
+# """
 
 import numpy as np
 import numpy.linalg as LA

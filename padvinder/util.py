@@ -1,7 +1,7 @@
-"""
-.. module:: Utilities
-   :synopsis: A number of frequently used functions in various modules.
-"""
+# """
+# .. module:: Utilities
+#    :synopsis: A number of frequently used functions in various modules.
+# """
 
 import numpy as np
 import numpy.linalg as LA

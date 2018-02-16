@@ -1,7 +1,7 @@
-"""
-.. module:: Material
-   :synopsis: Materials define the surface properties of an geometric object.
-"""
+# """
+# .. module:: Material
+#    :synopsis: Materials define the surface properties of an geometric object.
+# """
 
 import numpy as np
 
