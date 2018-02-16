@@ -10,8 +10,8 @@ Padvinder
    :maxdepth: 2
    :caption: Contents:
 
-   padvinder
-   padvinder.test
+   padvinder/padvinder
+   padvinder_test/padvinder.test
    modules
 
 

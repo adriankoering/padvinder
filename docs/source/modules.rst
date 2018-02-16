@@ -4,5 +4,5 @@ padvinder
 .. toctree::
    :maxdepth: 4
 
-   padvinder
-   padvinder.test
+   padvinder/padvinder
+   padvinder_test/padvinder.test
