@@ -3,7 +3,6 @@ Material
 
 .. automodule:: padvinder.material
     :undoc-members:
-    :special-members:
     :show-inheritance:
 
 .. autoclass:: Material
