@@ -33,13 +33,13 @@ Again, this executes the \_\_main\_\_.py file in the test module while keeping t
 Continuous Integration
 =======================
 
-Thanks to `Travis CI <https://travis-ci.org>`_. Find the build status at `Padvinder on Travis <https://travis-ci.org/adriankoering/padvinder>`_.
+Thanks to `Travis CI <https://travis-ci.org>`_ 😀. Find the build status at `Padvinder on Travis <https://travis-ci.org/adriankoering/padvinder>`_.
 
 
 Documentation
 ==============
 
-Thanks to `Read the Docs <https://readthedocs.org>`_. Find the documentation at `Padvinder on Read the Docs <http://padvinder.readthedocs.io/en/latest>`_.
+Thanks to `Read the Docs <https://readthedocs.org>`_ 😀. Find the documentation at `Padvinder on Read the Docs <http://padvinder.readthedocs.io/en/latest>`_.
 
 
 .. |nbsp| unicode:: 0xA0

@@ -5,10 +5,12 @@
 
 Padvinder
 ===========
-
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Package Structure
 
    padvinder
    padvinder.test
+
+
+.. include:: ../../README.rst
