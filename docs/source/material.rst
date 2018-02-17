@@ -2,13 +2,18 @@ Material
 =================
 
 .. automodule:: padvinder.material
+    :undoc-members:
+    :special-members:
     :show-inheritance:
 
 .. autoclass:: Material
-    :members:
+    :undoc-members:
+    :members: __call__
 
 .. autoclass:: Emission
-    :members:
+    :undoc-members:
+    :members: __call__
 
 .. autoclass:: Lambert
-    :members:
+    :undoc-members:
+    :members: __call__

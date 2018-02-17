@@ -1,7 +1,9 @@
-# """
-# .. module:: Material
-#    :synopsis: Materials define the surface properties of an geometric object.
-# """
+"""
+Materials define the surface properties and specify how light rays get coloured and reflected. All materials are callables - they implement the __call__ method
+and can be used like functions.
+
+.. moduleauthor:: Adrian Köring
+"""
 
 import numpy as np
 
@@ -15,9 +17,9 @@ class Material(object):
 
     Parameters
     ----------
-    color : nd-array of three or four dimensions
-             3d contains (Red, Green, Blue) - (RGB)
-             (0,0,0) is black, (1,1,1) is white
+    color : numpy.ndarray_like
+        of three dimensions and contains colors as (Red, Green, Blue) where
+        (0,0,0) is black and (1,1,1) is white
 
     Raises
     ------
@@ -35,13 +37,38 @@ class Material(object):
 
     @property
     def color(self):
+        """
+        Returns the color of the material.
+        """
         return self._color
 
-    def __call__(self, surface_position,
-                       surface_normal,
-                       incoming_light,
+    def __call__(self, surface_normal,
+                       incoming_color,
                        incoming_direction,
                        outgoing_direction):
+        """
+        Calculate light reflected from the material toward the outgoing
+        direction. Keep in mind, while pathtracing starts at the camera and
+        heads into the scene, the rays contribution is accumulated 'backwards'.
+        Therefore the incoming direction is further down the path and
+        outgoing_direction is closer towards the camera.
+
+        Parameters
+        ----------
+        surface_normal : numpy.ndarray_like
+            normal vector at the geometries surface
+        incoming_color : numpy.ndarray_like
+            the color the ray has accumulated up to this point
+        incoming_direction : numpy.ndarray_like
+            the direction from where the 'light shines' onto the surface
+        outgoing_direction : numpy.ndarray_like
+            the direction into which the 'light gets reflected' from the surface
+
+        Returns
+        -------
+        color : numpy.ndarray_like
+            the light color 'getting reflected' from the surface
+        """
         return self._color
 
     def __repr__(self):
@@ -50,10 +77,28 @@ class Material(object):
 
 class Emission(Material):
     """
-    Emission is structurally equivalent to the base-material,
-    but due to semantics it inherits and is not itself the
-    base-class - not every material is an emitter.
+    Emission is equivalent to the abstract base class Material. Due to semantics
+    this class exists and merely inherits without modifications.
+
+    Parameters
+    ----------
+    color : numpy.ndarray_like
+        of three dimensions and contains colors as (Red, Green, Blue) where
+        (0,0,0) is black and (1,1,1) is white
+
+    Raises
+    ------
+    ValueError
+        if the color contains any non-finite (inf, nan) values
+
+    Examples
+    --------
+    >>> Emission()
+    Emission(color=[10.0, 10.0, 10.0])
     """
+    def __init__(self, color = (10, 10, 10)):
+        super().__init__(color)
+
     def __repr__(self):
         return "Emission(color={})".format(self._color)
 
@@ -65,30 +110,61 @@ class Lambert(Material):
 
         Parameters
         ----------
-        color : nd-array of three dimensions
-            3d contains (Red, Green, Blue) - (RGB)
+        color : numpy.ndarray_like
+            of three dimensions and contains colors as (Red, Green, Blue) where
+            (0,0,0) is black and (1,1,1) is white
         diffuse : number in [0, 1]
             percentage of incoming light that is reflected again
+
+        Raises
+        ------
+        ValueError
+            if the color contains any non-finite (inf, nan) values
 
         Examples
         --------
         >>> Lambert((0.8, 0.8, 0.8), 1)
-        Lambert([.8 .8 .8], 1)
+        Lambert(color=[0.8, 0.8, 0.8], diffuse=1)
         """
         super().__init__(color)
         self._diffuse = diffuse
 
     @property
     def diffuse(self):
+        """
+        Returns the diffuse value of the material.
+        """
         return self._diffuse
+
+    def __call__(self, surface_normal,
+                       incoming_light,
+                       incoming_direction,
+                       outgoing_direction):
+        """
+        Calculate light reflected from the material toward the outgoing
+        direction. Keep in mind, while pathtracing starts at the camera and
+        heads into the scene, the rays contribution is accumulated 'backwards'.
+        Therefore the incoming direction is further down the path and
+        outgoing_direction is closer towards the camera.
+
+        Parameters
+        ----------
+        surface_normal : numpy.ndarray_like
+            normal vector at the geometries surface
+        incoming_color : numpy.ndarray_like
+            the color the ray has accumulated up to this point
+        incoming_direction : numpy.ndarray_like
+            the direction from where the 'light shines' onto the surface
+        outgoing_direction : numpy.ndarray_like
+            the direction into which the 'light gets reflected' from the surface
+
+        Returns
+        -------
+        color : numpy.ndarray_like
+            the light color 'getting reflected' from the surface
+        """
+        raise NotImplemented()
 
     def __repr__(self):
         c, d = self._color, self._diffuse
         return "Lambert(color={0}, diffuse={1})".format(c, d)
-
-    def __call__(self, surface_position,
-                       surface_normal,
-                       incoming_light,
-                       incoming_direction,
-                       outgoing_direction):
-        raise NotImplemented()
