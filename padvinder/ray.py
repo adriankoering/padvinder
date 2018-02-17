@@ -21,18 +21,18 @@ class Ray(object):
     Parameters
     ----------
     position : numpy.ndarray_like
-        a vector of three dimension
-    direction : nd-array
+        an array of three dimension
+    direction : nump.ndarray_like
         Direction must have the same number of dimension as position. The
         direction vector will be stored normalized to a length of one and can
         not initially have lenght zero.
 
     Raises
     ------
-    ValueError :
+    ValueError
         Raises a ValueError if the input contains NaNs or Infs.
 
-    ZeroDivisionError :
+    ZeroDivisionError
         Raises a ZeroDivisionError if the direction vector has length zero
 
     Examples
