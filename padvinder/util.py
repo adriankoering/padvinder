@@ -1,54 +1,68 @@
-# """
-# .. module:: Utilities
-#    :synopsis: A number of frequently used functions in various modules.
-# """
+"""
+Utilities contains a number of frequently used functions.
+"""
 
 import numpy as np
 import numpy.linalg as LA
 
 
-def normalize(arr):
+def normalize(array):
     """
-    Returns a normalized version of the provided vector.
+    Returns a normalized version of the provided array.
 
     Parameters
     ----------
-    arr : nd-array
-        The nd-array to be normalized.
-        The original data type is returned, if the datatype supports the
-        division-operator.
-        Else a numpy array with the normalized vector will be returned.
+    array : numpy.ndarray_like
+        The array to be normalized. Afterwards np.linalg.norm(normalize(array))
+        is approximately equal to 1.
 
     Returns
     -------
-    provided data type or nd-array : n-dimensional array
+    normalized array : numpy.ndarray_like
+        the array normalized to unit length:
+        np.linalg.norm(normalize(array)) ~= 1.
 
-    Errors
+    Raises
     ------
-    RuntimeWarning : if the length of the provided nd-array is zero
-        the division by zero causes a RuntimeWarning to be raised
+    ValueError
+        if the input array contains Inf's or Nan's
+    ZeroDivisionError
+        if the length of the provided array has length ofzero the division will
+        cause a ZeroDivisionError to be raised
 
     Examples
     --------
-    >>> normalize([2,4,4])
-    [ 0.33333333  0.66666667  0.66666667]
+    >>> normalize([1, 0, 0])
+    [1.0, 0.0, 0.0]
+    >>> normalize([2, 4, 4])
+    [0.33333333, 0.66666667, 0.66666667]
     >>> normalize(np.array((3,4,5)))
-    [ 0.42426407  0.56568542  0.70710678]
+    [0.42426407, 0.56568542, 0.70710678]
     ### np.linalg.norm(normalize((x, y, z))) ~= 1
     """
-    if not np.isfinite(arr).all():
-        raise ValueError("Can not normalize array {}".format(arr)
+    if not np.isfinite(array).all():
+        raise ValueError("Can not normalize array {}".format(array)
                         + "because it contains NaN or Inf")
-    norm = LA.norm(arr)
+    norm = LA.norm(array)
     if norm < 1e-9:
         raise ZeroDivisionError("Division by zero")
-    return arr / norm
+    return array / norm
 
 
 def check_finite(*args):
     """
-    Validate the input parameters and raise ValueErrors if incompatible
-    values are present.
+    Validate the input parameters and raise ValueErrors if any contains
+    incompatible values (Infs or NaNs) are present.
+
+    Parameters
+    ----------
+    args : numpy.ndarray_like
+        a list of lists or arrays
+
+    Raises
+    ------
+    ValueError
+        if any passed in element is Inf or NaN.
     """
     for e in args:
         if not np.isfinite(e).all():

@@ -2,6 +2,5 @@ Utilities
 =================
 
 .. automodule:: padvinder.util
+    :members:
     :show-inheritance:
-
-.. autofunction:: normalize
