@@ -1,9 +1,19 @@
 """
-The main routine setting up a scene and tying all components together.
+The main entry point, tying everything together and producing a rendered image.
+
+.. moduleauthor:: Adrian Köring
 """
 
 from padvinder.ray import Ray
 
-if __name__ == "__main__":
+def main():
+    """
+    This example sets up a scene and kicks off a render which is shown upon
+    completion.
+    """
     print("Hello Padvinder")
     print("Default Ray - {}".format(Ray()))
+
+
+if __name__ == "__main__":
+    main()
