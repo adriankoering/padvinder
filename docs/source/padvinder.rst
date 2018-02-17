@@ -1,9 +1,11 @@
 Padvinder
 =================
 
+.. include:: readme.rst
+
 .. toctree::
    :maxdepth: 2
-   :caption: Modules:
+   :caption: Modules
 
    ray
    camera

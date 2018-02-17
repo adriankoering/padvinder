@@ -4,20 +4,11 @@
    contain the root `toctree` directive.
 
 Padvinder
-=====================================
+===========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
-   padvinder/padvinder
-   padvinder_test/padvinder.test
-   modules
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   padvinder
+   padvinder.test

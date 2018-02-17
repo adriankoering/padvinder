@@ -6,3 +6,9 @@ Material
 
 .. autoclass:: Material
     :members:
+
+.. autoclass:: Emission
+    :members:
+
+.. autoclass:: Lambert
+    :members:
