@@ -1,15 +1,25 @@
-# """
-# .. module:: Scene
-#    :synopsis: A scene performs intersection tests on every renderable object.
-# """
+"""
+A Scene is a collection of renderables and performs intersection tests on every
+contained object.
+
+.. moduleauthor:: Adrian Köring
+"""
 
 import numpy as np
 
 class Scene(object):
+    """
+    A scene contains a collection of renderable objects and performs ray
+    intersections on them. Eventually the distance to the intersection point
+    and the intersected object are returned. If no renderable was intersected
+    (np.inf, None) is returned.
+
+    Parameters
+    ----------
+    renderable : padvinder.geometry.Geometry
+        and subclasses. A renderable has to implement the intersect(ray) method
+    """
     def __init__(self, *renderable):
-        """
-        A scene gathers a collection of renderable objects and performs ray intersections on them
-        """
         self._renderable = list(renderable)
 
     def __iter__(self):
@@ -27,10 +37,14 @@ class Scene(object):
 
         Returns
         -------
-        (number, renderable) where
-            number is in [0, np.inf] - the distance along the ray to the
-            object surface and renderable is an object previously passed into
-            the scene that is intersected by the ray with the shortest distance.
+        (number, renderable) : (float, padvinder.geometry.Geometry)
+            Number is a float in the intervall of [0, np.inf] and corresponds to
+            the distance along the ray to the intersection point on the
+            renderable surface. The renderable is an object previously passed
+            into the scene that was intersected by the ray. If multiple
+            renderables are intersected in the Scene, the one with the shortest
+            distance between intersection point and ray position is returned.
+            If no intersection occured **(np.inf, None)** is returned.
         """
         out_dist = np.inf
         out_obj = None

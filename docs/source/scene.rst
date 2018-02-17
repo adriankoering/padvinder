@@ -2,7 +2,5 @@ Scene
 =================
 
 .. automodule:: padvinder.scene
-    :show-inheritance:
-
-.. autoclass:: Scene
     :members:
+    :show-inheritance:
