@@ -13,5 +13,7 @@ from padvinder.test.test_geometry import TestGeometry
 from padvinder.test.test_geometry import TestSphere
 from padvinder.test.test_geometry import TestPlane
 from padvinder.test.test_scene    import TestScene
+from padvinder.test.test_camera   import TestCamera
+from padvinder.test.test_camera   import TestPerspectiveCamera
 
 unittest.main()
