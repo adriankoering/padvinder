@@ -1,4 +1,6 @@
-|LicenseMIT| |nbsp| |TravisCI| |nbsp| |ReadTheDocs|
+.. |LicenseMIT| |nbsp|
+
+|TravisCI| |nbsp| |ReadTheDocs|
 
 
 ##########
@@ -6,6 +8,7 @@ Padvinder
 ##########
 
 Padvinder is a little pathtracing renderer written in Python. Originally I was keen to implement my own pathtracer. The focus has always been on quick coding and learning rather than on code performance. Over the time it developed into an exercise for good coding practices like test-driven-development, continuous integration and documentation.
+
 
 Padvinder is meant to be a dutchly flavoured word for pathtracing; encoding the algorithm used for rendering with Guido van Rossum's dutch origins.
 
@@ -43,8 +46,6 @@ Thanks to `Read the Docs <https://readthedocs.org>`_ 😀. Find the documentatio
 
 
 .. |nbsp| unicode:: 0xA0
-.. |LicenseMIT|  image::
-    https://img.shields.io/badge/License-MIT-brightgreen.svg
 .. |TravisCI|    image::
     https://travis-ci.org/adriankoering/padvinder.svg?branch=master
     :target: https://travis-ci.org/adriankoering/padvinder
@@ -53,3 +54,6 @@ Thanks to `Read the Docs <https://readthedocs.org>`_ 😀. Find the documentatio
     https://readthedocs.org/projects/padvinder/badge/?version=latest
     :target: http://padvinder.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
+.. |LicenseMIT|  image::
+    https://img.shields.io/badge/Licencse-MIT-brightgreen.svg
+    :target: https://opensource.org/licenses/mit-license.php
