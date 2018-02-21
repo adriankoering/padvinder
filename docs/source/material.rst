@@ -7,11 +7,11 @@ Material
 
 .. autoclass:: Material
     :undoc-members:
-    :members: color, __call__
+    :members: color, outgoing_direction, __call__
 
 .. autoclass:: Emission
     :undoc-members:
-    :members: color, __call__
+    :members: color, outgoing_direction, __call__
 
 .. autoclass:: Lambert
     :undoc-members:
