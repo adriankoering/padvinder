@@ -99,7 +99,7 @@ class Camera(object):
         """
         return self._optical_axis
 
-    def ray(self, pixel, dimensions, rand = True):
+    def ray(self, pixel, resolutions, rand = True):
         """
         Given the pixel and the camera resolution, returns a ray that
         originates at the camera position and passes
@@ -117,7 +117,7 @@ class Camera(object):
             and y must be in [0, dimension[1]]
             The pixel [0,0] is the upper lefthand corner and the
             pixel [res_x, rex_y] is the lower righthand corner.
-        dimensions : numpy.ndarray_like
+        resolutions : numpy.ndarray_like
             (res_x, resx_y) the resolution of the camera in x and y.
         rand : boolean
             When False, every ray passes through the exact center of
@@ -209,7 +209,7 @@ class PerspectiveCamera(Camera):
         """
         return self._focal_length
 
-    def ray(self, pixel, dimensions, rand = True):
+    def ray(self, pixel, resolutions, rand = True):
         """
         Given the pixel and the camera resolution, returns a ray that
         originates at the camera position and passes
@@ -227,7 +227,7 @@ class PerspectiveCamera(Camera):
             and y must be in [0, dimension[1]]
             The pixel [0,0] is the upper lefthand corner and the
             pixel [res_x, rex_y] is the lower righthand corner.
-        dimensions : numpy.ndarray_like of shape (2, )
+        resolutions : numpy.ndarray_like of shape (2, )
             the resolution of the camera in x and y.
         rand : boolean
             When False, every ray passes through the exact center of
@@ -249,22 +249,23 @@ class PerspectiveCamera(Camera):
         Ray(position=[0, 0, 0], direction=[0, 0, 1])
         """
         pixel_x, pixel_y = pixel
-        dim_x, dim_y = dimensions
-        max_dim = np.maximum(dim_x, dim_y)
+        res_x, res_y = resolutions
+        max_dim = np.maximum(res_x, res_y)
 
         # image plane coordinates (x, y) of the pixel
         # x and y are in [-1, 1]
-        x = (dim_x - 2*pixel_x) / max_dim
-        y = (dim_y - 2*pixel_y) / max_dim
+        x = (res_x - 2*pixel_x) / max_dim
+        y = (res_y - 2*pixel_y) / max_dim
 
         if rand:
             # add a small perturbation to the pixel coordinate
-            delta_x, delta_y = 1/dim_x, 1/dim_y
+            delta_x, delta_y = 1/res_x, 1/res_y
             sample_x, sample_y = np.random.uniform(-1, 1, size=(2,))
             x += sample_x * delta_x
             y += sample_y * delta_y
 
-        world_coord = self._image_plane_center + x*self._righthand + y*self._up
+        #        Numpy Style - x is vertical - y is horizontal
+        world_coord = self._image_plane_center + x*self._up + y*self._righthand
         return Ray(self._position, world_coord - self._position)
 
 

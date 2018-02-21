@@ -93,7 +93,9 @@ class TestPerspectiveCamera(unittest.TestCase):
 
     def test_ray(self):
         """
-        Test if the initial rays are calculated correctly
+        Test if the initial rays are calculated correctly - Beware that the
+        indexing is following numpy's convention: x is vertical & y is
+        horizontal.
         """
         c = PerspectiveCamera()
         r = c.ray((50, 50), (100, 100), False)
@@ -104,10 +106,10 @@ class TestPerspectiveCamera(unittest.TestCase):
         nt.assert_almost_equal(r.direction, normalize((1, 1, 1)))
 
         r = c.ray((100, 0), (100, 100), False)
-        nt.assert_almost_equal(r.direction, normalize((-1, 1, 1)))
+        nt.assert_almost_equal(r.direction, normalize((1, -1, 1)))
 
         r = c.ray((0, 100), (100, 100), False)
-        nt.assert_almost_equal(r.direction, normalize((1, -1, 1)))
+        nt.assert_almost_equal(r.direction, normalize((-1, 1, 1)))
 
         r = c.ray((100, 100), (100, 100), False)
         nt.assert_almost_equal(r.direction, normalize((-1, -1, 1)))
