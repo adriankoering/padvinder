@@ -5,13 +5,19 @@ The main entry point, tying everything together and producing a rendered image.
 
 .. moduleauthor:: Adrian Köring
 """
-from padvinder.material import Emission
-from padvinder.material import Lambert
+import matplotlib.pyplot as plt
 
-from padvinder.geometry import Plane
-from padvinder.geometry import Sphere
+from padvinder.material  import Emission
+from padvinder.material  import Lambert
 
-from padvinder.scene    import Scene
+from padvinder.geometry  import Plane
+from padvinder.geometry  import Sphere
+
+from padvinder.scene     import Scene
+from padvinder.camera    import PerspectiveCamera
+
+from padvinder.padvinder import Padvinder
+
 
 def main():
     """
@@ -24,9 +30,17 @@ def main():
     p1 = Plane(light, (0, 10, 0))
     p2 = Plane(green, (0, -5, 0))
 
-    s  = Sphere((0, 0, -5))
+    s  = Sphere(position=(0, 0, 3))
 
     scn = Scene(p1, p2, s)
+    cam = PerspectiveCamera()
+
+    padvinder = Padvinder((1024, 1024))
+
+    img = padvinder(scn, cam)
+
+    plt.imshow(img)
+    plt.show()
 
 
 
