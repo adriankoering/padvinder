@@ -73,6 +73,30 @@ class Material(object):
         """
         return self._color
 
+    def outgoing_direction(self, normal, incoming_direction):
+        """
+        Given a surface normal and an incoming direction, determine the
+        direction in which the path continues.
+
+        normal : numpy.ndarray_like of shape (3, )
+            the surface normal at the intersection point
+
+        incoming_direction : numpy.ndarray_like of shape (3, )
+            the direction from which light hits the surface
+
+        Returns
+        -------
+        outgoing direction : numpy.ndarray_like of shape (3, 0)
+            the direction in which light is reflected from the surface
+        """
+        # BaseClass randomly (not uniformly) samples the hemisphere
+        point_on_sphere = normalize(np.random.uniform(0, 1, size=(3, )))
+        # ensure it is in the same hemisphere as the normal
+        if np.dot(normal, point_on_sphere) < 0:
+            point_on_sphere = -point_on_sphere
+        return normalize(normal + point_on_sphere)
+
+
     def __repr__(self):
         return "Material(color={})".format(self._color)
 
@@ -138,34 +162,34 @@ class Lambert(Material):
         """
         return self._diffuse
 
-    def __call__(self, surface_normal,
-                       incoming_light,
-                       incoming_direction,
-                       outgoing_direction):
-        """
-        Calculate light reflected from the material toward the outgoing
-        direction. Keep in mind, while pathtracing starts at the camera and
-        heads into the scene, the rays contribution is accumulated 'backwards'.
-        Therefore the incoming direction is further down the path and
-        outgoing_direction is closer towards the camera.
-
-        Parameters
-        ----------
-        surface_normal : numpy.ndarray_like
-            normal vector at the geometries surface
-        incoming_color : numpy.ndarray_like
-            the color the ray has accumulated up to this point
-        incoming_direction : numpy.ndarray_like
-            the direction from where the 'light shines' onto the surface
-        outgoing_direction : numpy.ndarray_like
-            the direction into which the 'light gets reflected' from the surface
-
-        Returns
-        -------
-        color : numpy.ndarray_like
-            the light color 'getting reflected' from the surface
-        """
-        raise NotImplemented()
+    # def __call__(self, surface_normal,
+    #                    incoming_light,
+    #                    incoming_direction,
+    #                    outgoing_direction):
+    #     """
+    #     Calculate light reflected from the material toward the outgoing
+    #     direction. Keep in mind, while pathtracing starts at the camera and
+    #     heads into the scene, the rays contribution is accumulated 'backwards'.
+    #     Therefore the incoming direction is further down the path and
+    #     outgoing_direction is closer towards the camera.
+    #
+    #     Parameters
+    #     ----------
+    #     surface_normal : numpy.ndarray_like
+    #         normal vector at the geometries surface
+    #     incoming_color : numpy.ndarray_like
+    #         the color the ray has accumulated up to this point
+    #     incoming_direction : numpy.ndarray_like
+    #         the direction from where the 'light shines' onto the surface
+    #     outgoing_direction : numpy.ndarray_like
+    #         the direction into which the 'light gets reflected' from the surface
+    #
+    #     Returns
+    #     -------
+    #     color : numpy.ndarray_like
+    #         the light color 'getting reflected' from the surface
+    #     """
+    #     raise NotImplemented()
 
     def __repr__(self):
         c, d = self._color, self._diffuse

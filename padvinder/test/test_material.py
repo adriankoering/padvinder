@@ -7,6 +7,7 @@ import numpy.testing as nt
 import hypothesis as hy
 from hypothesis.extra import numpy as hynp
 
+from padvinder.util     import normalize
 from padvinder.material import Material
 from padvinder.material import Emission
 from padvinder.material import Lambert
@@ -29,6 +30,19 @@ class TestMaterial(unittest.TestCase):
         m = Material((1,1,1))
         nt.assert_almost_equal(m.color, (1,1,1))
         nt.assert_almost_equal(m.color, m(None, None, None, None))
+
+    @hy.given(hynp.arrays(np.float64, 3,
+              hy.strategies.floats(min_value=-1e9, # beyond that test errors
+                                   max_value=1e9,  # are rounding errors
+                                   allow_nan=False,
+                                   allow_infinity=False)))
+    def test_outgoing_direction(self, normal):
+        hy.assume(0.001 < np.linalg.norm(normal) < 1e18)
+        normal = normalize(normal)
+        m = Material()
+        d = m.outgoing_direction(normal, None)
+        self.assertTrue(np.dot(normal, d) > 0)
+
 
     def test_representation(self):
         """
