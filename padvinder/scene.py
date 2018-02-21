@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 A Scene is a collection of renderables and performs intersection tests on every
 contained object.

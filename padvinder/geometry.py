@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 Module collecting a number of renderable objects. Geometry is an abstract base
 class defining the interface and Sphere and Plane are concrete, renderable
@@ -161,8 +163,8 @@ class Sphere(Geometry):
         """
         # a = 1 = ray.d @ ray.d
         tmp = ray.position - self.position
-        b = 2*tmp @ ray.direction
-        c = tmp @ tmp - self.radius**2
+        b = np.dot(2*tmp, ray.direction)
+        c = np.dot(tmp, tmp) - self.radius**2
         disc = b**2  - 4*c # /a is ommitted, because it is 1
         if disc > 0:
             disc = np.sqrt(disc)
@@ -254,9 +256,9 @@ class Plane(Geometry):
         >>> a.intersect(r)
         1.0
         """
-        d  = ray.direction @ self._normal
+        d  = np.dot(ray.direction, self._normal)
         if np.abs(d) > 1e-8:
-            d = ((self.position - ray.position) @ self._normal) / d
+            d = np.dot((self.position - ray.position), self._normal) / d
             return d if d > 0 else np.inf
         return np.inf
 

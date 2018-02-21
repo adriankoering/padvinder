@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 import unittest
 import numpy as np
 import numpy.testing as nt
@@ -52,8 +55,6 @@ class TestCheckFinite(unittest.TestCase):
             check_finite((np.inf, np.nan, 0), np.array((1, 1, 1)))
         with self.assertRaises(ValueError):
             check_finite((0,0,0), (np.nan, 0, 0))
-        with self.assertRaises(ValueError):
-            check_finite(*np.ones((100, 4)), (-np.inf, 0, 0))
         with self.assertRaises(ValueError):
             check_finite((-np.inf, 0, 0), *np.ones((100, 4)))
         with self.assertRaises(ValueError):

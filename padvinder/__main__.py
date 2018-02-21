@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 The main entry point, tying everything together and producing a rendered image.
 

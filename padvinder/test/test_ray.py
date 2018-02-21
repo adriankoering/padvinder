@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 import unittest
 import numpy as np
 import numpy.testing as nt
@@ -9,7 +12,7 @@ from padvinder.ray import Ray
 class TestRay(unittest.TestCase):
     def test_default_construction(self):
         """
-        Test if the ray is constructed with The
+        Test if the ray is constructed with the
         expected default parameters.
         """
         r = Ray()

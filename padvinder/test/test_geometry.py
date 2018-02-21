@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 import unittest
 import numpy as np
 import numpy.testing as nt

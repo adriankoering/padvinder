@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 Materials define the surface properties and specify how light rays get coloured and reflected. All materials are callables - they implement the __call__ method
 and can be used like functions.

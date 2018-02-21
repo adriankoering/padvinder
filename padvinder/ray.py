@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 Rays are stand-ins for lightrays heading from the camera through the scene.
 
@@ -22,7 +24,7 @@ class Ray(object):
     ----------
     position : numpy.ndarray_like
         an array of three dimension
-    direction : nump.ndarray_like
+    direction : numpy.ndarray_like
         Direction must have the same number of dimension as position. The
         direction vector will be stored normalized to a length of one and can
         not initially have lenght zero.
