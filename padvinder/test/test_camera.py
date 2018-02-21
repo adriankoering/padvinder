@@ -31,6 +31,9 @@ class TestCamera(unittest.TestCase):
         nt.assert_almost_equal(c.optical_axis, (0, 0, 1))
 
     def test_invalid_construction(self):
+        """
+        Test if the camera construction fails as expected on invalid input
+        """
         with self.assertRaises(ValueError):
             Camera(position=(0, 0, 0), look_at=(0, 0, 0))
         with self.assertRaises(ValueError):
@@ -76,6 +79,9 @@ class TestPerspectiveCamera(unittest.TestCase):
         nt.assert_almost_equal(c._image_plane_center, (10, 5, 2))
 
     def test_invalid_construction(self):
+        """
+        Test if the camera construction fails as expected on invalid input
+        """
         with self.assertRaises(ValueError):
             PerspectiveCamera(position=(0, 0, 0), look_at=(0, 0, 0))
         with self.assertRaises(ValueError):

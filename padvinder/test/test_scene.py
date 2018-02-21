@@ -21,7 +21,10 @@ class TestScene(unittest.TestCase):
 
         self.scn = Scene(self.s1, self.s2, self.p1, self.p2)
 
-    def test_interator(self):
+    def test_iterator(self):
+        """
+        Test if one can iterate over all contained objects given a scene
+        """
         for i, obj in enumerate(self.scn):
             self.assertTrue(self.scn._renderable[i] is obj)
 
@@ -32,6 +35,10 @@ class TestScene(unittest.TestCase):
         self.assertTrue(next(scn_iter) is self.p2)
 
     def test_intersection(self):
+        """
+        Test if a scene performs the ray-object intersection with all
+        contained renderables correctly.
+        """
         (d, o) = self.scn.intersect(self.r1)
         nt.assert_almost_equal(d, 0.5)
         self.assertTrue(o is self.p2)

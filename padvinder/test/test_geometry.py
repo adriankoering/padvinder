@@ -60,6 +60,9 @@ class TestSphere(unittest.TestCase):
         nt.assert_almost_equal(s.material.color, (1, 1, 1))
 
     def test_intersect(self):
+        """
+        Test if the ray-sphere intersection works as expected.
+        """
         s = Sphere()
         nt.assert_almost_equal(s.intersect(Ray()), 1)
         r = Ray(position=(-10, 0, 0))
@@ -76,6 +79,9 @@ class TestSphere(unittest.TestCase):
         # nt.assert_almost_equal(s.intersect(r), (1, 0, 0))
 
     def test_normal(self):
+        """
+        Test if the sphere normal is calculated correctly.
+        """
         s = Sphere()
         nt.assert_almost_equal(s.normal((1, 0, 0)), (1, 0, 0))
         nt.assert_almost_equal(s.normal((0, 1, 0)), (0, 1, 0))
@@ -111,6 +117,9 @@ class TestPlane(Geometry):
         nt.assert_almost_equal(p.material.color, (1, 1, 1))
 
     def test_intersect(self):
+        """
+        Test if the ray-plane intersection works as expected.
+        """
         r = Ray()
         nt.assert_almost_equal(Plane().intersect(r), np.inf)
 
@@ -118,6 +127,9 @@ class TestPlane(Geometry):
         nt.assert_almost_equal(p.intersect(r), 0.5)
 
     def test_normal(self):
+        """
+        Test if the plane normal calculated correctly.
+        """
         p = Plane()
         nt.assert_almost_equal(s.normal((1, 0, 0)), (0, 1, 0))
         nt.assert_almost_equal(s.normal((0, 1, 0)), (0, 1, 0))
